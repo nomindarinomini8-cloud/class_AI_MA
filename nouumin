@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>푸레브수렝 노밍다리 | 소개</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --navy-light: #1d4e75;
+      --sky: #eaf4ff;
+      --cream: #f8fbff;
+      --text: #243b53;
+      --accent: #f6ad55;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* 상단 소개 영역 */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 8% 90px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      border-radius: 50%;
+      content: "";
+      opacity: 0.18;
+    }
+
+    .hero::before {
+      width: 270px;
+      height: 270px;
+      top: -110px;
+      right: -60px;
+      background: #67e8f9;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      bottom: -90px;
+      left: 45%;
+      background: var(--accent);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      letter-spacing: -0.06em;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 18px 0 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #d9eaf7;
+    }
+
+    .emoji-decoration {
+      position: absolute;
+      right: 10%;
+      bottom: 34px;
+      z-index: 1;
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      transform: rotate(-8deg);
+    }
+
+    /* 본문 2단 구성 */
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 28px;
+      max-width: 1100px;
+      margin: -36px auto 0;
+      padding: 0 8% 70px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      padding: 30px;
+      border: 1px solid #e4edf5;
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(16, 42, 67, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--navy);
+      font-size: 1.3rem;
+    }
+
+    .profile-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .profile-list li {
+      padding: 13px 0;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .profile-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 2px;
+      color: #627d98;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .value {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .interest-tags span {
+      padding: 9px 14px;
+      border-radius: 50px;
+      color: var(--navy);
+      font-weight: 700;
+      background: #e6f2ff;
+    }
+
+    .likes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .like-item {
+      padding: 20px 10px;
+      border-radius: 15px;
+      text-align: center;
+      background: #f7fbff;
+    }
+
+    .like-item .icon {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 2rem;
+    }
+
+    .goal {
+      margin-top: 28px;
+      padding: 22px;
+      border-left: 5px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: #fff8ed;
+    }
+
+    .goal p {
+      margin: 6px 0 0;
+      font-weight: 700;
+      color: #5d3b16;
+    }
+
+    footer {
+      padding: 22px;
+      color: #829ab1;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* 스마트폰 반응형 */
+    @media (max-width: 720px) {
+      .hero {
+        padding: 58px 7% 105px;
+      }
+
+      .emoji-decoration {
+        right: 7%;
+        bottom: 18px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: -42px;
+        padding: 0 5% 45px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .likes {
+        gap: 9px;
+      }
+
+      .like-item {
+        padding: 15px 6px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="tag">MY PROFILE</span>
+      <h1>푸레브수렝 노밍다리</h1>
+      <p class="intro">
+        청추대학교 경영학과에서 새로운 아이디어와 사람들의 선택을 배우고 있는 학생입니다.
+      </p>
+    </div>
+    <div class="emoji-decoration" aria-hidden="true">🚀</div>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>👋 기본 정보</h2>
+      <ul class="profile-list">
+        <li>
+          <span class="label">이름</span>
+          <span class="value">푸레브수렝 노밍다리</span>
+        </li>
+        <li>
+          <span class="label">학교</span>
+          <span class="value">청추대학교</span>
+        </li>
+        <li>
+          <span class="label">소속</span>
+          <span class="value">경영학과 2학년</span>
+        </li>
+        <li>
+          <span class="label">Instagram</span>
+          <span class="value">@nouumu_mn</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>✨ 관심 분야</h2>
+      <div class="interest-tags">
+        <span>🛍️ 유통</span>
+        <span>📣 마케팅</span>
+        <span>💡 창업</span>
+      </div>
+
+      <h2>💙 좋아하는 것</h2>
+      <div class="likes">
+        <div class="like-item">
+          <span class="icon">☕</span>
+          카페 탐방
+        </div>
+        <div class="like-item">
+          <span class="icon">📚</span>
+          새로운 배움
+        </div>
+        <div class="like-item">
+          <span class="icon">✈️</span>
+          여행과 도전
+        </div>
+      </div>
+
+      <div class="goal">
+        <strong>🎯 나의 목표</strong>
+        <p>사람들의 일상에 긍정적인 변화를 만드는 브랜드를 만들어 가겠습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 푸레브수렝 노밍다리. All rights reserved.
+  </footer>
+</body>
+</html>
